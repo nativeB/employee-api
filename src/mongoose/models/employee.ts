@@ -3,7 +3,7 @@ import * as mongoose from "mongoose"
 export interface EmployeeInterface {
   firstName: string,
   lastName: string,
-  dateOfBirth: Date,
+  dateOfBirth: string,
   jobTitle: string,
   company: string,
   country: string,
@@ -14,7 +14,7 @@ interface EmployeeModelInterface extends mongoose.Model<EmployeeDocumentInterfac
 export interface EmployeeDocumentInterface extends mongoose.Document {
   firstName: string,
   lastName: string,
-  dateOfBirth: Date,
+  dateOfBirth: string,
   jobTitle: string,
   company: string,
   country: string,
@@ -30,7 +30,7 @@ const EmployeeSchema = new mongoose.Schema({
     required: true,
   },
   dateOfBirth: {
-    type: Date,
+    type: String,
     required: true,
   },
   jobTitle: {
