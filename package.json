@@ -1,0 +1,23 @@
+{
+  "name": "omni",
+  "version": "1.0.0",
+  "description": "employer list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nativeB/omni.git"
+  },
+  "keywords": [
+    "employer",
+    "omni"
+  ],
+  "author": "nativeb <https://github.com/nativeB>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nativeB/omni/issues"
+  },
+  "homepage": "https://github.com/nativeB/omni#readme"
+}
