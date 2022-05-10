@@ -1,23 +1,26 @@
 import {  Request, Response } from "express";
+import { Employee } from "../../mongoose/models";
 import { getOneEmployee } from "../../services";
 import { getObjectId } from "../../utils";
 import constants from "../../utils/constants";
 
 export const getOneEmployeeById =  async (req: Request, res: Response) => {
   try{
-    const  gameId = req.params.gameId;
+    const  employeeId = req.params.employeeId;
 
-    const game = await getOneEmployee({_id : getObjectId(gameId) })
-
-    if(!game) {
+    const employee = await getOneEmployee({_id : getObjectId(employeeId) })
+    if(!employee) {
       return res.status(404).send({
         success:false,
         message: constants.STATUS_CODES[404]
     })
     }
+
+    const employeePopulated =  await Employee.populateEmployeeCountries(employee.toJSON());
+    
     return res.json({
       success: true,
-      game
+      employee: employeePopulated
     })
   }catch(error: any) {
     return res.status(500).send({

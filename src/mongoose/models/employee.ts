@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose"
+import { populateEmployeeCountries } from "../statics/employee/populateEmployeeCountries"
 
 export interface EmployeeInterface {
   firstName: string,
@@ -10,6 +11,7 @@ export interface EmployeeInterface {
 }
 
 interface EmployeeModelInterface extends mongoose.Model<EmployeeDocumentInterface> {
+  populateEmployeeCountries: (employees: EmployeeInterface) => Promise<EmployeeInterface>
 }
 export interface EmployeeDocumentInterface extends mongoose.Document {
   firstName: string,
@@ -49,8 +51,10 @@ const EmployeeSchema = new mongoose.Schema({
 {
   timestamps: true
 })
-const Employee = mongoose.model<EmployeeDocumentInterface, EmployeeModelInterface>("Employee", EmployeeSchema)
 
+EmployeeSchema.statics.populateEmployeeCountries = populateEmployeeCountries
+
+const Employee = mongoose.model<EmployeeDocumentInterface, EmployeeModelInterface>("Employee", EmployeeSchema)
 
 export { Employee }
 
