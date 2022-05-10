@@ -7,6 +7,8 @@
     "build": "tsc -v && tsc -p tsconfig.json",
     "build:watch": "npm run build && tsc -p tsconfig.json -w",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eval $(cat .env) nodemon --config nodemon.json --verbose --signal SIGINT --inspect=0.0.0.0:9229 ./build/index.js",
+    "lint": "tslint --fix -c tslint.json 'src/**/*.{ts,js}'; exit 0",
     "insertEmployees": "ts-node src/cli/insertEmployees.ts"
   },
   "repository": {
