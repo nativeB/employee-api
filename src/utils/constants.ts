@@ -18,9 +18,11 @@ const ERROR_MESSAGES: {
         type: "employee id should be an objectid"
     }
 }
+const REGIONS_WITH_IDENTIFIERS = ["ASIA", "EUROPE"];
 const constants = Object.freeze({
     STATUS_CODES,
-    ERROR_MESSAGES
+    ERROR_MESSAGES,
+    REGIONS_WITH_IDENTIFIERS
 })
 
 export default constants;
