@@ -6,8 +6,7 @@ export const getEmployees =  async (req: Request, res: Response) => {
   try{
     const { query } = req;
     const limit = parseInt(query.limit as string) || 10;
-    const offSet = parseInt(query.offSet as string) || 1;
-
+    const offSet = parseInt(query.offSet as string) || 0;
     const employees = await getManyEmployees(offSet,limit);
 
     return res.json({
