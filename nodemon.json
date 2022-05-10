@@ -1,0 +1,6 @@
+{
+    "verbose": true,
+    "signal": "SIGINT",
+    "watch": ["build/"]
+  }
+  
