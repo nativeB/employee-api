@@ -4,7 +4,10 @@
   "description": "employer list",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -v && tsc -p tsconfig.json",
+    "build:watch": "npm run build && tsc -p tsconfig.json -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "insertEmployees": "ts-node src/cli/insertEmployees.ts"
   },
   "repository": {
     "type": "git",
